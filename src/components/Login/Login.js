@@ -1,30 +1,62 @@
-import classes from "./Login.module.css";
+import { React, useState } from "react";
+import LofinForm from "./LoginForm";
 
 const Login = () => {
+  const userInfo = {
+    userEmail: "example@mail.com",
+    userPassword: "Secret123",
+  };
+
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const emailChangeHandler = (event) => {
+    setEnteredEmail(event.target.value);
+  };
+
+  const passwordChangeHandler = (event) => {
+    setEnteredPassword(event.target.value);
+  };
+
+  const emailErrorHandler = () => {
+    if (
+      enteredEmail.trim().length === 0 ||
+      enteredEmail !== userInfo.userEmail
+    ) {
+      setEmailError("Invalid Mail");
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const passwordErrorHandler = () => {
+    if (
+      enteredPassword.trim().length < 8 ||
+      enteredPassword !== userInfo.userPassword
+    ) {
+      setPasswordError("Invalid Password");
+    } else {
+      setPasswordError("");
+    }
+  };
+
+  const addUserHandler = (event) => {
+    console.log(enteredEmail, enteredPassword);
+    emailErrorHandler();
+    passwordErrorHandler();
+    event.preventDefault();
+  };
+
   return (
-    <form className={classes.form}>
-      <h1>Log In</h1>
-
-      <button class={classes.closeBtn}>✕</button>
-
-      <input
-        className={classes.input}
-        type='email'
-        name='email'
-        placeholder='Email Address'
-      />
-
-      <input
-        className={classes.input}
-        type='password'
-        placeholder='Password'
-        name='password'
-      />
-      <button className={classes.btnLogin}>Log In</button>
-      <a className={classes.aLink} href='*'>
-        Forgot Password?
-      </a>
-    </form>
+    <LofinForm
+      onSubmit={addUserHandler}
+      onEmailEdit={emailChangeHandler}
+      onPasswordEdit={passwordChangeHandler}
+      showEmailError={emailError}
+      showPasswordError={passwordError}
+    />
   );
 };
 
