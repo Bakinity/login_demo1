@@ -1,0 +1,76 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.signUpForm{
+  opacity: 0.9;
+  background-color: rgb(242, 243, 247);
+  margin: 20px auto;
+  width: 500px;
+  padding: 2em;
+  border-radius: 5px
+}
+
+.h1Title{
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
+}
+
+.pTitle{
+  text-align: center;
+  font-size: 15px;
+  margin: 15px 0;
+}
+
+.nameLastNameDiv{
+  margin: 15px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nameLastNameInput{
+  width: 210px;
+  display: inline;
+  padding: 15px;
+}
+
+.emailInput{
+  margin: 15px 0;
+  width: 100%;
+  display: block;
+  padding: 15px;
+}
+
+.passwordInput{
+  margin: 15px 0;
+  width: 100%;
+  display: block;
+  padding: 15px;
+}
+
+.checkInputDiv{
+  display: flex;
+  align-items: center;
+}
+
+.checklabel{
+  font-size: 15px;
+}
+
+.butnSignUp{
+  color: white;
+  cursor: pointer;
+  margin: 15px 0;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background-image: linear-gradient(rgba(88, 181, 3), rgba(20, 128, 20));
+  background-color: rgb(80, 171, 79);
+  width: 100%;
+}
+
+.aStyle{
+  text-decoration: none;
+  color: rgb(146, 198, 160);
+}

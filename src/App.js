@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import Login from "./components/Login/Login";
+import SignUp from "./components/SignUp/SignUp";
 
 function App() {
   return (
     <Fragment>
-      <Login></Login>
+      <SignUp></SignUp>
     </Fragment>
   );
 }
