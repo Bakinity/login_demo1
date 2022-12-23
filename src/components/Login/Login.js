@@ -1,11 +1,9 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
+import Context from "../../components/Context";
 import LofinForm from "./LoginForm";
 
 const Login = () => {
-  const userInfo = {
-    userEmail: "example@mail.com",
-    userPassword: "Secret123",
-  };
+  const userData = useContext(Context);
 
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -21,24 +19,24 @@ const Login = () => {
   };
 
   const emailErrorHandler = () => {
-    if (
-      enteredEmail.trim().length === 0 ||
-      enteredEmail !== userInfo.userEmail
-    ) {
+    if (enteredEmail.trim().length === 0) {
       setEmailError("Invalid Mail");
-    } else {
-      setEmailError("");
+    } else if (enteredEmail !== userData.email) {
+      setEmailError("User not found");
+    } else if (enteredEmail === userData.email) {
+      setEmailError("Welcome");
+      console.log("succsess");
     }
   };
 
   const passwordErrorHandler = () => {
-    if (
-      enteredPassword.trim().length < 8 ||
-      enteredPassword !== userInfo.userPassword
-    ) {
+    if (enteredPassword.trim().length < 8) {
       setPasswordError("Invalid Password");
-    } else {
-      setPasswordError("");
+    } else if (enteredPassword !== userData.password) {
+      setPasswordError("Wrong User Password");
+    } else if (enteredPassword === userData.password) {
+      setPasswordError("Welcome");
+      console.log("success");
     }
   };
 
